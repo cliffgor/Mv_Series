@@ -47,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new MainActivity.SliderTimer(), 4000,6000);
-
-
-
         indicator.setupWithViewPager(sliderpager, true);
+
+
+//        RECYCLERVIEW SETUP
+
 
 
     }
@@ -72,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
                             sliderpager.setCurrentItem(0);
                 }
             });
-
-
 
         }
     }
