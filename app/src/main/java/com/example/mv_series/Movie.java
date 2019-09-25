@@ -10,6 +10,11 @@ public class Movie {
     private String streamingLink;
 
 
+    public Movie(String title, int thumbnail) {
+        Title = title;
+        this.thumbnail = thumbnail;
+    }
+
     public Movie(String title, String description, int thumbnail, String studio, String rating, String streamingLink) {
         Title = title;
         Description = description;

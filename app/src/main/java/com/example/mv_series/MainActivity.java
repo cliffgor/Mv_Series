@@ -1,6 +1,8 @@
 package com.example.mv_series;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Slide> lstSlides ;
     private ViewPager sliderpager;
     private TabLayout indicator;
+    private RecyclerView MoviesRV;
 
 
 
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         sliderpager = findViewById(R.id.slider_pager);
         indicator = findViewById(R.id.indicator);
+        MoviesRV = findViewById(R.id.Rv_movies);
 
 
 
@@ -51,6 +55,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        RECYCLERVIEW SETUP
+
+//        ini Data
+        List<Movie> lstMovies = new ArrayList<>();
+        lstMovies.add(new Movie("Aladin",R.drawable.aladin));
+        lstMovies.add(new Movie("Glass",R.drawable.glass));
+        lstMovies.add(new Movie("US",R.drawable.us));
+        lstMovies.add(new Movie("aladin",R.drawable.aladin));
+        lstMovies.add(new Movie("aladin",R.drawable.aladin));
+        lstMovies.add(new Movie("aladin",R.drawable.aladin));
+        lstMovies.add(new Movie("aladin",R.drawable.aladin));
+
+        MovieAdapter movieAdapter = new MovieAdapter(this,lstMovies);
+        MoviesRV.setAdapter(movieAdapter);
+        MoviesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
 
 
 
