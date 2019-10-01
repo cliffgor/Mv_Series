@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 
 import com.google.android.material.tabs.TabLayout;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MovieItemClickListener  {
 
     private List<Slide> lstSlides ;
     private ViewPager sliderpager;
@@ -71,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
         MoviesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
 
+
+
+    }
+
+    @Override
+    public void onMovieClick(Movie movie, ImageView movieImageView) {
+//        SEND MOVIE INFORMATION TO DETAIL ACTIVITY 
 
 
     }

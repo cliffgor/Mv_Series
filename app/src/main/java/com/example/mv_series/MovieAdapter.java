@@ -16,10 +16,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     Context context ;
     List<Movie> mData;
+    MovieItemClickListener movieItemClickListener;
 
-    public MovieAdapter(Context context, List<Movie> mData) {
+    public MovieAdapter(Context context, List<Movie> mData,MovieItemClickListener listener) {
         this.context = context;
         this.mData = mData;
+        movieItemClickListener = listener;
+
     }
 
 
