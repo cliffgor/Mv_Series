@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -85,7 +86,13 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
 //        SEND MOVIE INFO TO THE DETAILACTIVITY
          intent.putExtra("title",movie.getTitle());
          intent.putExtra("imgURL",movie.getThumbnail());
-         startActivity(intent);
+//         startActivity(intent);
+//         Transition animation
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this,movieImageView ,"sharedName");
+
+
+        startActivity(intent,options.toBundle());
+
 
 //        A small test to see if the click function works
         Toast.makeText(this, "item clicked: " + movie.getTitle(), Toast.LENGTH_LONG).show();

@@ -11,6 +11,7 @@
     android:foreground="?attr/selectableItemBackgroundBorderless">
 
     <ImageView
+        android:transitionName="sharedName"
         android:id="@+id/item_img_movie"
         android:layout_width="0dp"
         android:layout_height="175dp"
