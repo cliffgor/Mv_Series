@@ -64,6 +64,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
             ImgMovie = itemView.findViewById(R.id.item_img_movie);
 
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    movieItemClickListener.onMovieClick(mData.get(getAdapterPosition()),ImgMovie);
+                }
+            });
 
 
         }

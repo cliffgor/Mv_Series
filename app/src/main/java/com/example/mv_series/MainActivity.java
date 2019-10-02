@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.google.android.material.tabs.TabLayout;
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
         lstMovies.add(new Movie("aladin",R.drawable.aladin));
         lstMovies.add(new Movie("aladin",R.drawable.aladin));
 
-        MovieAdapter movieAdapter = new MovieAdapter(this,lstMovies);
+        MovieAdapter movieAdapter = new MovieAdapter(this,lstMovies, this);
         MoviesRV.setAdapter(movieAdapter);
         MoviesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
@@ -78,7 +80,15 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
 
     @Override
     public void onMovieClick(Movie movie, ImageView movieImageView) {
-//        SEND MOVIE INFORMATION TO DETAIL ACTIVITY 
+//        SEND MOVIE INFORMATION TO DETAIL ACTIVITY
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+//        SEND MOVIE INFO TO THE DETAILACTIVITY
+         intent.putExtra("title",movie.getTitle());
+         intent.putExtra("imgURL",movie.getThumbnail());
+         startActivity(intent);
+
+//        A small test to see if the click function works
+        Toast.makeText(this, "item clicked: " + movie.getTitle(), Toast.LENGTH_LONG).show();
 
 
     }
