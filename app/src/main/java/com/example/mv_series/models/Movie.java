@@ -1,4 +1,4 @@
-package com.example.mv_series;
+package com.example.mv_series.models;
 
 public class Movie {
 
@@ -8,7 +8,14 @@ public class Movie {
     private String studio;
     private String rating;
     private String streamingLink;
+    private int coverPhoto;
 
+
+    public Movie(String title, int thumbnail, int coverPhoto) {
+        Title = title;
+        this.thumbnail = thumbnail;
+        this.coverPhoto = coverPhoto;
+    }
 
     public Movie(String title, int thumbnail) {
         Title = title;
@@ -24,7 +31,16 @@ public class Movie {
         this.streamingLink = streamingLink;
     }
 
-//    GETTERS
+    public int getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(int coverPhoto) {
+        this.coverPhoto = coverPhoto;
+    }
+
+
+    //    GETTERS
 
 
     public String getTitle() {

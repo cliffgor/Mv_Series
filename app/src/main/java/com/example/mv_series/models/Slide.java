@@ -1,4 +1,4 @@
-package com.example.mv_series;
+package com.example.mv_series.models;
 
 public class Slide {
     private int Image;

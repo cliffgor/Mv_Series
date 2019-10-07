@@ -1,4 +1,4 @@
-package com.example.mv_series;
+package com.example.mv_series.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mv_series.R;
+import com.example.mv_series.models.Movie;
 
 import java.util.List;
 

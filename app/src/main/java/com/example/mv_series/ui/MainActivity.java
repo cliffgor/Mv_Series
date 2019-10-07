@@ -1,4 +1,4 @@
-package com.example.mv_series;
+package com.example.mv_series.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +12,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.example.mv_series.models.Movie;
+import com.example.mv_series.adapters.MovieAdapter;
+import com.example.mv_series.adapters.MovieItemClickListener;
+import com.example.mv_series.R;
+import com.example.mv_series.models.Slide;
+import com.example.mv_series.adapters.SliderPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -19,7 +25,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity implements MovieItemClickListener  {
+public class MainActivity extends AppCompatActivity implements MovieItemClickListener {
 
     private List<Slide> lstSlides ;
     private ViewPager sliderpager;
@@ -62,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
 
 //        ini Data
         List<Movie> lstMovies = new ArrayList<>();
-        lstMovies.add(new Movie("Aladin",R.drawable.aladin));
-        lstMovies.add(new Movie("Glass",R.drawable.glass));
+        lstMovies.add(new Movie("Aladin",R.drawable.aladin,R.drawable.ghostrecon));
+        lstMovies.add(new Movie("Glass",R.drawable.glass, R.drawable.ghostrecon));
         lstMovies.add(new Movie("US",R.drawable.us));
         lstMovies.add(new Movie("aladin",R.drawable.aladin));
         lstMovies.add(new Movie("aladin",R.drawable.aladin));
@@ -86,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
 //        SEND MOVIE INFO TO THE DETAILACTIVITY
          intent.putExtra("title",movie.getTitle());
          intent.putExtra("imgURL",movie.getThumbnail());
+        intent.putExtra("imgCover",movie.getCoverPhoto());
+
 //         startActivity(intent);
 //         Transition animation
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this,movieImageView ,"sharedName");
