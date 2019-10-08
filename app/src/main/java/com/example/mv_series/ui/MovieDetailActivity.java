@@ -1,6 +1,7 @@
 package com.example.mv_series.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.animation.AnimationUtils;
@@ -16,6 +17,8 @@ public class MovieDetailActivity extends AppCompatActivity {
     private ImageView MovieThumbailImg, MovieCoverImg;
     private TextView tv_title,tv_description;
     private FloatingActionButton play_fab;
+    private RecyclerView RvCast;
+
 
 
 
@@ -33,6 +36,7 @@ public class MovieDetailActivity extends AppCompatActivity {
     }
 
     void iniViews() {
+        RvCast = findViewById(R.id.rv_cast);
         play_fab = findViewById(R.id.play_fab);
         String movieTitle = getIntent().getExtras().getString("title");
         int imageResourceId = getIntent().getExtras().getInt("imgURL");
