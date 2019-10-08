@@ -18,6 +18,7 @@ import com.example.mv_series.adapters.MovieItemClickListener;
 import com.example.mv_series.R;
 import com.example.mv_series.models.Slide;
 import com.example.mv_series.adapters.SliderPagerAdapter;
+import com.example.mv_series.utils.DataSource;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
     private List<Slide> lstSlides ;
     private ViewPager sliderpager;
     private TabLayout indicator;
-    private RecyclerView MoviesRV;
+    private RecyclerView MoviesRV, moviesRvWeek;
 
 
 
@@ -43,10 +44,38 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
         sliderpager = findViewById(R.id.slider_pager);
         indicator = findViewById(R.id.indicator);
         MoviesRV = findViewById(R.id.Rv_movies);
+        moviesRvWeek = findViewById(R.id.rv_movies_week);
 
 
 
         //    PREPARE A LIST OF SLIDES
+        iniSlider();
+        iniPopularMovies();
+        iniWeekMovies();
+
+
+    }
+
+    private void iniWeekMovies() {
+
+        MovieAdapter weekMovieAdapter = new MovieAdapter(this,DataSource.getWeekMovies(),this);
+        moviesRvWeek.setAdapter(weekMovieAdapter);
+        moviesRvWeek.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+
+
+    }
+
+    private void iniPopularMovies() {
+        //        RECYCLERVIEW SETUP
+
+//        ini Data
+        MovieAdapter movieAdapter = new MovieAdapter(this, DataSource.getPopularMovies(), this);
+        MoviesRV.setAdapter(movieAdapter);
+        MoviesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+    }
+
+    private void iniSlider() {
         lstSlides = new ArrayList<>();
         lstSlides.add(new Slide(R.drawable.sautisol, "Slide Title /more text here"));
         lstSlides.add(new Slide(R.drawable.maia, "Slide Title /more text here"));
@@ -60,29 +89,8 @@ public class MainActivity extends AppCompatActivity implements MovieItemClickLis
 //        SETUP TIMER
 
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new MainActivity.SliderTimer(), 4000,6000);
+        timer.scheduleAtFixedRate(new SliderTimer(), 4000,6000);
         indicator.setupWithViewPager(sliderpager, true);
-
-
-//        RECYCLERVIEW SETUP
-
-//        ini Data
-        List<Movie> lstMovies = new ArrayList<>();
-        lstMovies.add(new Movie("Aladin",R.drawable.aladin,R.drawable.ghostrecon));
-        lstMovies.add(new Movie("Glass",R.drawable.glass, R.drawable.ghostrecon));
-        lstMovies.add(new Movie("US",R.drawable.us));
-        lstMovies.add(new Movie("aladin",R.drawable.aladin));
-        lstMovies.add(new Movie("aladin",R.drawable.aladin));
-        lstMovies.add(new Movie("aladin",R.drawable.aladin));
-        lstMovies.add(new Movie("aladin",R.drawable.aladin));
-
-        MovieAdapter movieAdapter = new MovieAdapter(this,lstMovies, this);
-        MoviesRV.setAdapter(movieAdapter);
-        MoviesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-
-
-
-
     }
 
     @Override

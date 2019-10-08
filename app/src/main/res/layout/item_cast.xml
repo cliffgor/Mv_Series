@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="140dp"
     android:layout_height="192dp"
-    android:id="@+id/img_cast">
+    android:id="@+id/img_cast"
+    android:scaleType="centerCrop">
 
 </ImageView>
