@@ -1,6 +1,7 @@
 package com.cliffgor.mv_series.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.cliffgor.mv_series.R;
 import com.cliffgor.mv_series.models.Slide;
+import com.cliffgor.mv_series.ui.MoviePlayerActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -38,8 +41,15 @@ public class SliderPagerAdapter extends PagerAdapter {
         TextView slideText = slideLayout.findViewById(R.id.slide_title);
         slideImg.setImageResource(mList.get(position).getImage());
         slideText.setText(mList.get(position).getTitle());
+        FloatingActionButton playButton = slideLayout.findViewById(R.id.play_button);
 
-
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, MoviePlayerActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
         container.addView(slideLayout);
         return slideLayout;
 

@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MoviePlayerActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape">
+
+
+        </activity>
         <activity android:name=".ui.MovieDetailActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>

@@ -24,7 +24,7 @@ public class MoviePlayerActivity extends AppCompatActivity {
 
     private PlayerView playerView;
     private SimpleExoPlayer simpleExoPlayer;
-    public static final String VIDEO_TEST_URL="https://clips.vorwaerts-gmbh.de/Vfe_html5.mp4";
+    public static final String VIDEO_TEST_URL="https://clips.vorwaerts-gmbh.de/VfE_html5.mp4";
 
 
 
