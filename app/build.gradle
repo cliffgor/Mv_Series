@@ -1,10 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+}
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.example.mv_series"
+        applicationId "com.cliffgor.mv_series"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -28,9 +33,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.0.0'
 //    glide library
-    implementation ("com.github.bumptech.glide:glide:4.9.0") {
+    implementation("com.github.bumptech.glide:glide:4.9.0") {
         exclude group: "com.android.support"
     }
     implementation "com.android.support:support-fragment:26.1.0"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+//    Exo Player Library
+    implementation 'com.google.android.exoplayer:exoplayer:2.9.6'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.9.6'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.9.6'
+
+
 }
