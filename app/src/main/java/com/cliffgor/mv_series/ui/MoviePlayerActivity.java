@@ -13,6 +13,7 @@ import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.dash.DashMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
@@ -24,7 +25,8 @@ public class MoviePlayerActivity extends AppCompatActivity {
 
     private PlayerView playerView;
     private SimpleExoPlayer simpleExoPlayer;
-    public static final String VIDEO_TEST_URL="https://clips.vorwaerts-gmbh.de/VfE_html5.mp4";
+    public static final String VIDEO_TEST_URL="\n" +
+            "http://208.113.129.24/static/media/videos/868557a5-9315-4afa-b165-ece90c5f1601/868557a5-9315-4afa-b165-ece90c5f1601.mpd";
 
 
 
@@ -62,7 +64,7 @@ public class MoviePlayerActivity extends AppCompatActivity {
         playerView.setPlayer(simpleExoPlayer);
         DataSource.Factory dataSourceFactory= new DefaultDataSourceFactory(this,
                 Util.getUserAgent(this,"appname"));
-        MediaSource videosSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+        MediaSource videosSource = new DashMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(Uri.parse(VIDEO_TEST_URL));
         simpleExoPlayer.prepare(videosSource);
         simpleExoPlayer.setPlayWhenReady(true);
