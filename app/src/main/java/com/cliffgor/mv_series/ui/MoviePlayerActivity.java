@@ -26,7 +26,7 @@ public class MoviePlayerActivity extends AppCompatActivity {
     private PlayerView playerView;
     private SimpleExoPlayer simpleExoPlayer;
     public static final String VIDEO_TEST_URL="\n" +
-            "http://208.113.129.24/static/media/videos/868557a5-9315-4afa-b165-ece90c5f1601/868557a5-9315-4afa-b165-ece90c5f1601.mpd";
+            "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd";
 
 
 
